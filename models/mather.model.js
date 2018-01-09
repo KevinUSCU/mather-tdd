@@ -1,12 +1,14 @@
 class Mather {
   static add(...numbers) {
-    return numbers.reduce((number, acc) => {
+    return numbers.reduce((acc, number) => {
       return number + acc
     }, 0)
   }
 
-  static subtract(x, y) {
-    return x - y
+  static subtract(x, ...numbers) {
+    return numbers.reduce((acc, number) => {
+      return acc - number
+    }, x)
   }
 }
 
