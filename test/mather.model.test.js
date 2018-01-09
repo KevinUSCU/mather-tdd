@@ -6,6 +6,9 @@ describe('Mather Model', () => {
     test('It should have an add function', () => {
       expect(typeof model.add).toBe('function')
     })
+    test('It should add two numbers', () => {
+      expect(model.add(1, 2)).toBe(3)
+    })
   })
 
 })
