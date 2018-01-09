@@ -4,6 +4,8 @@ class Mather {
       return number + acc
     }, 0)
   }
+
+  static subtract() {}
 }
 
 module.exports = Mather
