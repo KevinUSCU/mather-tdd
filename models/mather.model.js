@@ -1,6 +1,8 @@
 class Mather {
-  static add(x, y) {
-    return x + y
+  static add(...numbers) {
+    return numbers.reduce((number, acc) => {
+      return number + acc
+    }, 0)
   }
 }
 
