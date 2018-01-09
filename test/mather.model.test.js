@@ -1,3 +1,11 @@
 const model = require('../models/mather.model')
 
-it('Should have an add function')
+describe('Mather Model', () => {
+
+  describe('Add', () => {
+    test('It should have an add function', () => {
+      expect(typeof model.add).toBe('function')
+    })
+  })
+
+})
