@@ -1,6 +1,6 @@
 class Mather {
-  static add() {
-    
+  static add(x, y) {
+    return x + y
   }
 }
 
