@@ -5,7 +5,9 @@ class Mather {
     }, 0)
   }
 
-  static subtract() {}
+  static subtract(x, y) {
+    return x - y
+  }
 }
 
 module.exports = Mather
