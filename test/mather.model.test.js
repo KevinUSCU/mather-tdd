@@ -16,4 +16,18 @@ describe('Mather Model', () => {
     })
   })
 
+  describe('Subtract', () => {
+    test('It should have a subtract function', () => {
+      expect(typeof model.subtract).toBe('function')
+    })
+    test('It should subtract a number from a number', () => {
+      expect(model.subtract(5, 2)).toBe(3)
+    })
+    test('It should subtract any number of numbers from the first', () => {
+      expect(model.subtract(1)).toBe(1)
+      expect(model.subtract(1, 2, 10)).toBe(-11)
+      expect(model.subtract(3, 7, -5, 19, 25, -12)).toBe(-31)
+    })
+  })
+
 })
