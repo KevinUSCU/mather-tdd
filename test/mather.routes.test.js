@@ -4,17 +4,31 @@ const request = require('supertest')
 
 describe('Mather Routes', () => {
 
-  // test('It adds items in request', () => {
-  //   expect(controller.addEmUp({ body: { numbers: [ 4, 55, -3 ] }}, {})).toBe({ "total": "56" })
-  // })
-  test('It adds items in request', (done) => {
-    request(app)
-      .get('/api/addems')
-      .expect(200, done)
-      // .end((err, res) => {
-      //   if (err) return done(err)
-      //   // return done()
-      // })
+  describe('ROUTER', () => {
+    test('It returns 404 for a bad route', (done) => {
+      request(app)
+        .get('/bad')
+        .expect(404, done)
+    })
+
+    test('It returns an error message for a bad route', (done) => {
+      request(app)
+        .get('/bad')
+        .expect(res => {
+          if (!res.body.message) throw new Error('Error message is not present')
+        })
+        .end(done)
+    })
+  })
+
+  describe('POST /addem', () => {
+
+    test('It adds items in request', (done) => {
+      request(app)
+        .post('/api/addem')
+        .send({ numbers: [4, 55, -3] })
+        .expect(200, { total: 56 }, done)
+    })
   })
 
 })
