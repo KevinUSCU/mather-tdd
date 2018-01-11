@@ -29,19 +29,13 @@ describe('Mather Routes', () => {
         .send({ numbers: [4, 55, -3] })
         .expect(200, { total: 56 }, done)
     })
+
+    test('It throws an error if input is not provided', (done) => {
+      request(app)
+        .post('/api/addem')
+        .send({ })
+        .expect(400, done)
+    })
   })
 
 })
-
-// describe('error handling', function () {
-//   it('should return a JSON message when a route is not found', function (done) {
-//     chai.request(app)
-//       .get('/doesnotexist')
-//       .end((err, res) => {
-//         expect(res.status).to.equal(404)
-//         expect(res.body).to.be.an('object')
-//         expect(res.body.error).to.be.an('object')
-//         expect(res.body.error.message).to.be.ok
-//         done()
-//       })
-//   })
